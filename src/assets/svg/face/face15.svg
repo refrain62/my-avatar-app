@@ -1,0 +1,7 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Eyes -->
+  <circle cx="175" cy="180" r="10" fill="black" />
+  <circle cx="225" cy="180" r="10" fill="black" />
+  <!-- Mouth -->
+  <path d="M 180,230 Q 200,250 220,230" stroke="black" fill="none" stroke-width="5" />
+</svg>
