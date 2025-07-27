@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2'; // Grid v2をインポート
 import AvatarPreview from './AvatarPreview';
 import PartSelector from './PartSelector';
 import ExportButton from './ExportButton';
@@ -32,11 +32,11 @@ const AvatarGenerator = () => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} md={6} component="div">
+      <Grid xs={12} md={6}>
         <AvatarPreview selectedParts={selectedParts} />
         <ExportButton selectedParts={selectedParts} />
       </Grid>
-      <Grid item xs={12} md={6} component="div">
+      <Grid xs={12} md={6}>
         <PartSelector
           svgParts={svgParts}
           selectedParts={selectedParts}
