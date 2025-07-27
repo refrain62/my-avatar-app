@@ -7,7 +7,7 @@ import ExportButton from './components/ExportButton'; // Import the new componen
 // 仮のSVGパーツリスト。後で動的に読み込むように変更します。
 // IMPORTANT: ユーザーは src/assets/svg/** に実際のファイルを配置する必要があります。
 const svgParts = {
-  body: ['body/body1.svg'],
+  body: ['body/body1.svg', 'body/body2.svg'],
   hair: ['hair/hair1.svg', 'hair/hair2.svg'],
   face: ['face/face1.svg', 'face/face2.svg'],
   clothes: ['clothes/clothes1.svg', 'clothes/clothes2.svg'],
