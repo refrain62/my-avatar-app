@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Container, Grid, Typography, Box } from '@mui/material';
 import AvatarPreview from './components/AvatarPreview';
 import PartSelector from './components/PartSelector';
-import ExportButton from './components/ExportButton'; // Import the new component
+import ExportButton from './components/ExportButton'; // ExportButtonコンポーネントをインポート
 
-// 仮のSVGパーツリスト。後で動的に読み込むように変更します。
-// IMPORTANT: ユーザーは src/assets/svg/** に実際のファイルを配置する必要があります。
+// アバターの各カテゴリに対応するSVGパーツのリスト。
+// 現状は仮のデータですが、将来的には動的に読み込むことを想定しています。
+// ユーザーは src/assets/svg/** 以下に実際のSVGファイルを配置する必要があります。
 const svgParts = {
   body: ['body/body1.svg', 'body/body2.svg'],
   hair: ['hair/hair1.svg', 'hair/hair2.svg'],
@@ -13,6 +14,10 @@ const svgParts = {
   clothes: ['clothes/clothes1.svg', 'clothes/clothes2.svg'],
 };
 
+/**
+ * 選択されたアバターパーツの状態を管理するための型定義。
+ * キーはパーツのカテゴリ（例: 'body', 'hair'）、値は選択されたSVGファイルのパス。
+ */
 export type SelectedParts = {
   [key: string]: string;
 };
@@ -34,7 +39,7 @@ function App() {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <AvatarPreview selectedParts={selectedParts} />
-            <ExportButton selectedParts={selectedParts} /> {/* Add the button here */}
+            <ExportButton selectedParts={selectedParts} /> {/* ExportButtonコンポーネントを追加 */}
           </Grid>
           <Grid item xs={12} md={6}>
             <PartSelector
