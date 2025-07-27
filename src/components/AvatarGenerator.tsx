@@ -8,10 +8,10 @@ import ExportButton from './ExportButton';
 // 現状は仮のデータですが、将来的には動的に読み込むことを想定しています。
 // ユーザーは src/assets/svg/** 以下に実際のSVGファイルを配置する必要があります。
 const svgParts = {
-  body: ['body/body1.svg', 'body/body2.svg'],
-  hair: ['hair/hair1.svg', 'hair/hair2.svg'],
-  face: ['face/face1.svg', 'face/face2.svg'],
-  clothes: ['clothes/clothes1.svg', 'clothes/clothes2.svg'],
+  body: Array.from({ length: 20 }, (_, i) => `body/body${i + 1}.svg`),
+  hair: Array.from({ length: 20 }, (_, i) => `hair/hair${i + 1}.svg`),
+  face: Array.from({ length: 20 }, (_, i) => `face/face${i + 1}.svg`),
+  clothes: Array.from({ length: 20 }, (_, i) => `clothes/clothes${i + 1}.svg`),
 };
 
 /**
