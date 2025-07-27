@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Container, Grid, Typography, Box } from '@mui/material';
 import AvatarPreview from './components/AvatarPreview';
 import PartSelector from './components/PartSelector';
+import ExportButton from './components/ExportButton'; // Import the new component
 
 // 仮のSVGパーツリスト。後で動的に読み込むように変更します。
 // IMPORTANT: ユーザーは src/assets/svg/** に実際のファイルを配置する必要があります。
@@ -33,6 +34,7 @@ function App() {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <AvatarPreview selectedParts={selectedParts} />
+            <ExportButton selectedParts={selectedParts} /> {/* Add the button here */}
           </Grid>
           <Grid item xs={12} md={6}>
             <PartSelector
