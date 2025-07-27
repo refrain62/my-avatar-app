@@ -1,23 +1,34 @@
 import { Box } from '@mui/material';
+import type { SelectedParts } from '../App';
 
-const AvatarPreview = () => {
+interface AvatarPreviewProps {
+  selectedParts: SelectedParts;
+}
+
+const AvatarPreview = ({ selectedParts }: AvatarPreviewProps) => {
+  const partOrder = ['body', 'clothes', 'face', 'hair']; // Define the stacking order
+
   return (
     <Box sx={{ position: 'relative', width: '100%', height: '100%', minHeight: '400px' }}>
-      <img 
-        src="https://via.placeholder.com/400?text=Body"
-        alt="Body"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-      />
-      <img 
-        src="https://via.placeholder.com/400?text=Face"
-        alt="Face"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-      />
-      <img 
-        src="https://via.placeholder.com/400?text=Hair"
-        alt="Hair"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-      />
+      {partOrder.map((category) => {
+        const partPath = selectedParts[category];
+        if (!partPath) return null;
+
+        return (
+          <img
+            key={category}
+            src={`/src/assets/svg/${partPath}`}
+            alt={category}
+            style={{ 
+              position: 'absolute', 
+              top: 0, 
+              left: 0, 
+              width: '100%', 
+              height: '100%' 
+            }}
+          />
+        );
+      })}
     </Box>
   );
 };
