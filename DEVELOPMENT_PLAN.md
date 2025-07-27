@@ -37,7 +37,7 @@
     - `pnpm create vite my-avatar-app --template react-ts` を実行済み。
 - [x] **タスク1.2: MUIライブラリのインストール**
     - `pnpm add @mui/material @emotion/react @emotion/styled` を実行済み。
-- [ ] **タスク1.3: ディレクトリ構成の整備**
+- [x] **タスク1.3: ディレクトリ構成の整備**
     - `src`内に`components`, `pages`, `assets/svg`ディレクトリを作成する。
     - `assets/svg`内に`body`, `hair`, `face`, `clothes`などのカテゴリ別フォルダを作成する。
     - *（注: 前回の実行はユーザーによってキャンセルされました）*
