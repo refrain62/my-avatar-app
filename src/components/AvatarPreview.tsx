@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import type { SelectedParts } from '../App';
+import type { SelectedParts } from '../types';
 
 interface AvatarPreviewProps {
   selectedParts: SelectedParts;

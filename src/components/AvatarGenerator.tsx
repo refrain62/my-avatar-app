@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid v2をインポート
+import Box from '@mui/material/Box'; // Boxをインポート
+import Typography from '@mui/material/Typography'; // Typographyをインポート
 import AvatarPreview from './AvatarPreview';
 import PartSelector from './PartSelector';
 import ExportButton from './ExportButton';
@@ -14,13 +16,7 @@ const svgParts = {
   clothes: Array.from({ length: 20 }, (_, i) => `clothes/clothes${i + 1}.svg`),
 };
 
-/**
- * 選択されたアバターパーツの状態を管理するための型定義。
- * キーはパーツのカテゴリ（例: 'body', 'hair'）、値は選択されたSVGファイルのパス。
- */
-export type SelectedParts = {
-  [key: string]: string;
-};
+import type { SelectedParts } from '../types';
 
 const AvatarGenerator = () => {
   const [selectedParts, setSelectedParts] = useState<SelectedParts>({
@@ -31,19 +27,29 @@ const AvatarGenerator = () => {
   });
 
   return (
-    <Grid container spacing={2}>
-      <Grid xs={12} md={6}>
-        <AvatarPreview selectedParts={selectedParts} />
-        <ExportButton selectedParts={selectedParts} />
+    <>
+      <Grid container spacing={2}>
+        <Grid xs={12} md={6}>
+          <AvatarPreview selectedParts={selectedParts} />
+          <ExportButton selectedParts={selectedParts} />
+        </Grid>
+        <Grid xs={12} md={6}>
+          <PartSelector
+            svgParts={svgParts}
+            selectedParts={selectedParts}
+            setSelectedParts={setSelectedParts}
+          />
+        </Grid>
       </Grid>
-      <Grid xs={12} md={6}>
-        <PartSelector
-          svgParts={svgParts}
-          selectedParts={selectedParts}
-          setSelectedParts={setSelectedParts}
-        />
-      </Grid>
-    </Grid>
+      <Box sx={{ mt: 4, p: 2, border: '1px dashed grey' }}>
+        <Typography variant="h6" gutterBottom>
+          Debug Info: Selected Parts
+        </Typography>
+        <pre style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
+          {JSON.stringify(selectedParts, null, 2)}
+        </pre>
+      </Box>
+    </>
   );
 };
 

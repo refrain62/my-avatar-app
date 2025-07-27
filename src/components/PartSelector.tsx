@@ -1,6 +1,6 @@
 import { Tabs, Tab, ImageList, ImageListItem } from '@mui/material';
 import { useState } from 'react';
-import type { SelectedParts } from '../App';
+import type { SelectedParts } from '../types';
 
 interface PartSelectorProps {
   svgParts: { [key: string]: string[] };
@@ -24,10 +24,10 @@ const PartSelector = ({ svgParts, selectedParts, setSelectedParts }: PartSelecto
 
   /**
    * タブが変更されたときに呼び出されるハンドラ。
-   * @param {React.SyntheticEvent} event - イベントオブジェクト。
+   * @param {React.SyntheticEvent} _event - イベントオブジェクト。
    * @param {number} newValue - 新しく選択されたタブのインデックス。
    */
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setSelectedTab(newValue);
   };
 
