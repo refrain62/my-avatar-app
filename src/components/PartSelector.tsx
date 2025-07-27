@@ -1,4 +1,4 @@
-import { Tabs, Tab, ImageList, ImageListItem } from '@mui/material';
+import { Box, Tabs, Tab, ImageList, ImageListItem } from '@mui/material';
 import { useState } from 'react';
 import type { SelectedParts } from '../types';
 
@@ -45,13 +45,13 @@ const PartSelector = ({ svgParts, selectedParts, setSelectedParts }: PartSelecto
   const currentCategory = categories[selectedTab];
 
   return (
-    <div>
-      <Tabs value={selectedTab} onChange={handleTabChange}>
+    <Box sx={{ width: '100%' }}>
+      <Tabs value={selectedTab} onChange={handleTabChange} variant="scrollable" scrollButtons="auto">
         {categories.map((category) => (
-          <Tab key={category} label={category} />
+          <Tab key={category} label={category.charAt(0).toUpperCase() + category.slice(1)} />
         ))}
       </Tabs>
-      <ImageList sx={{ width: '100%', height: 450 }} cols={3} rowHeight={164}>
+      <ImageList sx={{ width: '100%', height: 450 }} cols={3} rowHeight={120}>
         {svgParts[currentCategory].map((part) => (
           <ImageListItem key={part} onClick={() => handlePartSelect(currentCategory, part)} sx={{ cursor: 'pointer' }}>
             <img
@@ -63,7 +63,7 @@ const PartSelector = ({ svgParts, selectedParts, setSelectedParts }: PartSelecto
           </ImageListItem>
         ))}
       </ImageList>
-    </div>
+    </Box>
   );
 };
 

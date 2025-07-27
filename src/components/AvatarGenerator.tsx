@@ -29,8 +29,10 @@ const AvatarGenerator = () => {
   return (
     <>
       <Grid container spacing={2}>
-        <Grid xs={12} md={6}>
-          <AvatarPreview selectedParts={selectedParts} />
+        <Grid xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <Box sx={{ width: '100%', maxWidth: 400, aspectRatio: '1 / 1', mb: 2 }}>
+            <AvatarPreview selectedParts={selectedParts} />
+          </Box>
           <ExportButton selectedParts={selectedParts} />
         </Grid>
         <Grid xs={12} md={6}>
