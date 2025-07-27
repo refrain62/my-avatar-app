@@ -1,5 +1,6 @@
 import { Container, Grid, Typography, Box } from '@mui/material';
 
+import AvatarPreview from './components/AvatarPreview';
 import PartSelector from './components/PartSelector';
 
 function App() {
@@ -11,9 +12,7 @@ function App() {
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <Box sx={{ border: '1px dashed grey', height: '100%', minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Typography>Avatar Preview</Typography>
-            </Box>
+            <AvatarPreview />
           </Grid>
           <Grid item xs={12} md={6}>
             <PartSelector />
