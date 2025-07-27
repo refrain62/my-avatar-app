@@ -1,69 +1,52 @@
-# React + TypeScript + Vite
+# SVG Avatar Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## プロジェクト概要
 
-Currently, two official plugins are available:
+このプロジェクトは、複数のSVGパーツ（髪、顔、服など）を組み合わせてオリジナルのアバターを作成できるWebアプリケーションです。作成したアバターは、単一のSVGファイルとしてダウンロードできます。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **目的:** ユーザーに直感的で楽しいアバター作成体験を提供します。
+- **主要機能:** パーツ選択、リアルタイムプレビュー、SVGファイルのエクスポート。
 
-## Expanding the ESLint configuration
+## 技術スタック
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **フレームワーク:** React
+- **言語:** TypeScript
+- **ビルドツール:** Vite
+- **パッケージマネージャー:** pnpm
+- **UIライブラリ:** Material-UI (MUI Core)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 利用方法
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 1. プロジェクトのセットアップ
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+まず、必要な依存関係をインストールします。
+
+```bash
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. 開発サーバーの起動
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+開発サーバーを起動し、アプリケーションをブラウザで確認します。
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm dev
 ```
+
+通常、`http://localhost:5173`でアクセスできます。
+
+### 3. SVGパーツの追加
+
+アバターのパーツとなるSVGファイルは、`src/assets/svg/`以下のカテゴリ別フォルダに配置します。
+
+例:
+- `src/assets/svg/body/body1.svg`
+- `src/assets/svg/hair/hair1.svg`
+- `src/assets/svg/face/face1.svg`
+- `src/assets/svg/clothes/clothes1.svg`
+
+### 4. アバターの作成とエクスポート
+
+- アプリケーションのUIから、各カテゴリのパーツを選択してアバターをカスタマイズします。
+- リアルタイムでプレビューが更新されます。
+- 「Export as SVG」ボタンをクリックすると、現在プレビューされているアバターが単一のSVGファイルとしてダウンロードされます。
